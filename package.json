@@ -4,12 +4,18 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "esbuild --bundle public/sw.ts --outfile=public/sw.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@types/serviceworker": "^0.0.54"
+    "@types/serviceworker": "^0.0.54",
+    "esbuild": "^0.15.12",
+    "workbox-precaching": "^6.5.4",
+    "workbox-recipes": "^6.5.4",
+    "workbox-routing": "^6.5.4",
+    "workbox-strategies": "^6.5.4"
   }
 }
