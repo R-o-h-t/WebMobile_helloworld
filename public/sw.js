@@ -1938,7 +1938,7 @@ This is generally NOT safe. Learn more at https://bit.ly/wb-precache`;
   };
 
   // public/sw.ts
-  precacheAndRoute([{"revision":"c0a9628bd2935b114aa37ba8fd993f02","url":"index.html"},{"revision":"60d54e5e1be5885f6af890c6368e5ac7","url":"offline.html"},{"revision":"b13be44605b069af26bc42573d1701d5","url":"img/coda_sign.png"},{"revision":"833c7cca660692a0070ddf71cbcd47ef","url":"img/icons/192x192.png"},{"revision":"09fbd9ce9485fee4a2e5e1fa16492e68","url":"img/icons/512x512.png"}]);
+  precacheAndRoute([{"revision":"1fbd3d39d18f88df10ce37b95c35550a","url":"index.html"},{"revision":"60d54e5e1be5885f6af890c6368e5ac7","url":"offline.html"},{"revision":"b13be44605b069af26bc42573d1701d5","url":"img/coda_sign.png"},{"revision":"833c7cca660692a0070ddf71cbcd47ef","url":"img/icons/192x192.png"},{"revision":"09fbd9ce9485fee4a2e5e1fa16492e68","url":"img/icons/512x512.png"}]);
   registerRoute(
     ({ url }) => url.pathname.startsWith("/page/"),
     new NetworkOnly()
