@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "esbuild --bundle public/sw.ts --outfile=public/sw.js && workbox injectManifest"
+    "build": "esbuild --bundle public/sw.ts --outfile=public/sw.js && workbox injectManifest && esbuild --bundle public/badge_service.ts --outfile=public/badge_service.js"
   },
   "keywords": [],
   "author": "",
