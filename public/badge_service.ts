@@ -7,18 +7,22 @@ interface Navigator {
 }
 
 // run every 5 seconds
-setInterval(async () => {
+const interval = setInterval(async () => {
   navigator.clearAppBadge().catch((err) => {
     console.log(err);
   });
   //   const randInt = Math.floor(Math.random() * 99) + 1;
   const randInt = await fetch(
     "https://www.randomnumberapi.com/api/v1.0/random?min=1&max=99&count=1"
-  ).then((response) => {
-    return response.json().then((data) => {
-      return data[0];
+  )
+    .then((response) => {
+      return response.json().then((data) => {
+        return data[0] || 0;
+      });
+    })
+    .catch((err) => {
+      return 0;
     });
-  });
 
   //log the randInt
   console.log("randInt", randInt);
@@ -28,3 +32,17 @@ setInterval(async () => {
     console.log(err);
   });
 }, 5000);
+
+//clear the interval after a minute
+setTimeout(() => {
+  clearInterval(interval);
+}, 60000);
+
+//clear the interval when the user closes the tab
+window.addEventListener(
+  "beforeunload",
+  () => {
+    clearInterval(interval);
+  },
+  false
+);

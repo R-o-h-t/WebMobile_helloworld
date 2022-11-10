@@ -28,7 +28,7 @@
   // public/badge_service.ts
   var require_badge_service = __commonJS({
     "public/badge_service.ts"(exports) {
-      setInterval(() => __async(exports, null, function* () {
+      var interval = setInterval(() => __async(exports, null, function* () {
         navigator.clearAppBadge().catch((err) => {
           console.log(err);
         });
@@ -36,16 +36,26 @@
           "https://www.randomnumberapi.com/api/v1.0/random?min=1&max=99&count=1"
         ).then((response) => {
           return response.json().then((data) => {
-            return data[0];
+            return data[0] || 0;
           });
+        }).catch((err) => {
+          return 0;
         });
         console.log("randInt", randInt);
         navigator.setAppBadge(randInt).catch((err) => {
           console.log(err);
-        }).then((result) => {
-          console.log("result", result);
         });
       }), 5e3);
+      setTimeout(() => {
+        clearInterval(interval);
+      }, 6e4);
+      window.addEventListener(
+        "beforeunload",
+        () => {
+          clearInterval(interval);
+        },
+        false
+      );
     }
   });
   require_badge_service();
